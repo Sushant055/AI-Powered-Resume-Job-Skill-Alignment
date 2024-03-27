@@ -1,3 +1,4 @@
+# importing the required packages
 import streamlit as st
 import spacy
 import pdfplumber
@@ -16,6 +17,7 @@ from langchain.llms import OpenAI
 import os
 from streamlit_option_menu import option_menu
 
+# home page module
 def module0():
     st.title("Project Overview")
 
@@ -38,8 +40,9 @@ def module0():
         """,
         unsafe_allow_html=True
     )
+    
     st.markdown("## Architecture Diagram:")
-    diagram_image="D:/scraper/archi_diag.jpg"
+    diagram_image="D:/scraper/archi_diag.jpg"  # Add the image path
     st.image(diagram_image,use_column_width=True)
 
 # Load English language model with NER
@@ -92,6 +95,7 @@ def extract_skills(text):
 
     return list(skills)
 
+# Resume Parser Module for Skills Extraction from Resume
 def module1():
     
     st.markdown(
@@ -149,10 +153,10 @@ def module1():
             st.write("**No skills extracted.**")
         
 
-# Function for module 2: LinkedIn Job Scraper
+# Function for module 2: LinkedIn Job Scraper, to scrape the job details from the Jobs posted on Linkedin. Jobs from user's interested domain/job role will be taken. 
 class Linkedin_Project():
     def __init__(self):
-        self.path = "D:/Work/others/chromedriver-win64 (1)/chromedriver-win64/chromedriver.exe"
+        self.path = "D:/Work/others/chromedriver-win64 (1)/chromedriver-win64/chromedriver.exe"  # Add the file path of Chrome Driver
         self.job_title = []
         self.company_name = []
         self.job_location = []
@@ -217,7 +221,7 @@ class Linkedin_Project():
             time.sleep(2)
             current_page = self.driver.current_url
             try:
-                for page_number in range(0, 25, 25):
+                for page_number in range(0, 50, 25):           # Keep the middle element in the multiple of 25 (25 jobs are listed in 1 page in Linkedin Jobs). It denotes the no. of jobs we want to scrape.
                     self.driver.get(current_page+'&start='+str(page_number))
                     self.job_available_scraping()
                     time.sleep(2)
