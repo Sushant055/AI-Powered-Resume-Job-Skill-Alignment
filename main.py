@@ -298,8 +298,8 @@ def module2():
 
 # Function for module 3: Skills extraction using LangChain
 def module3():
-    # Provided OpenAI API key
-    openai_api_key = "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"
+    # Provided the OpenAI API key inside ""
+    openai_api_key = ""
 
     st.markdown(
         """
