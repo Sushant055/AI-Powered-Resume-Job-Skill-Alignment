@@ -5,3 +5,4 @@ selenium
 google.generativeai
 streamlit_option_menu
 selenium
+webdriver_manager
