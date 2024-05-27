@@ -14,6 +14,7 @@ import google.generativeai as genai
 from io import StringIO
 from contextlib import redirect_stdout
 from streamlit_option_menu import option_menu
+from webdriver_manager.chrome import ChromeDriverManager
 
 def module0():
     st.title("Project Overview")
@@ -143,7 +144,6 @@ class Linkedin_Project():
     #     self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     #     self.driver.get(webpage)
     #     self.driver.maximize_window()
-from webdriver_manager.chrome import ChromeDriverManager
 
     def initialize_driver(self, webpage):
         try:
