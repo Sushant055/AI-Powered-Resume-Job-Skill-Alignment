@@ -4,3 +4,4 @@ pandas
 selenium
 google.generativeai
 streamlit_option_menu
+selenium
