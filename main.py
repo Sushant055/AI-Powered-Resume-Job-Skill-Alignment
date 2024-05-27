@@ -1,5 +1,4 @@
 import streamlit as st
-import spacy
 import pdfplumber
 import pandas as pd
 from selenium import webdriver
@@ -40,12 +39,8 @@ def module0():
     diagram_image = "D:/scraper/archi_diag.jpg"  # Replace with the actual path to your image
     st.image(diagram_image, use_column_width=True)
 
-# Load English language model with NER
-nlp = spacy.load("en_core_web_sm")
-
 # Function for module 1: Resume Parser
 def extract_skills(text):
-    doc = nlp(text)
     skills = set()
 
     # Keywords representing common tech skills
@@ -78,15 +73,10 @@ def extract_skills(text):
     }
 
     # Tokenize the text by spaces
-    for token in doc:
-        if token.text.lower() in tech_skills_keywords:
-            # If the token is a single tech skill keyword, add it directly to the skills set
-            skills.add(token.text.lower())
-        else:
-            # If the token is not a single tech skill keyword, check if it's part of a multi-word skill
-            for keyword in tech_skills_keywords:
-                if keyword in text.lower():  # Check if the keyword is a substring of the text
-                    skills.add(keyword)
+    for skill in tech_skills_keywords:
+        if skill.lower() in text.lower():
+            skills.add(skill)
+            
     return list(skills)
 
 def module1():
