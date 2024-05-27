@@ -132,7 +132,7 @@ def module1():
 # Function for module 2: LinkedIn Job Scraper
 class Linkedin_Project():
     def __init__(self):
-        self.path = "D:/Work/others/chromedriver-win64 (1)/chromedriver-win64/chromedriver.ex" # Place the path of your ChromeDriver here
+        self.path = "chromedriver-path"  # Place the path of your ChromeDriver here
         self.job_title = []
         self.company_name = []
         self.job_location = []
@@ -140,7 +140,7 @@ class Linkedin_Project():
         self.job_description = []
 
     def initialize_driver(self, webpage):
-        self.driver = webdriver.Chrome(self.path)
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.get(webpage)
         self.driver.maximize_window()
 
