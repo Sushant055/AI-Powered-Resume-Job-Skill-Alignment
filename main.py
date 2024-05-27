@@ -36,7 +36,7 @@ def module0():
         unsafe_allow_html=True
     )
     st.markdown("## Architecture Diagram:")
-    diagram_image = "D:/scraper/archi_diag.jpg"  # Replace with the actual path to your image
+    diagram_image = "./archi_diag.jpg"  # Replace with the actual path to your image
     st.image(diagram_image, use_column_width=True)
 
 # Function for module 1: Resume Parser
