@@ -3,5 +3,4 @@ pdfplumber
 pandas
 selenium
 google.generativeai
-contextlib
 streamlit_option_menu
