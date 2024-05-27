@@ -139,10 +139,24 @@ class Linkedin_Project():
         self.job_id = []
         self.job_description = []
 
+    # def initialize_driver(self, webpage):
+    #     self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    #     self.driver.get(webpage)
+    #     self.driver.maximize_window()
+from webdriver_manager.chrome import ChromeDriverManager
+
     def initialize_driver(self, webpage):
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        self.driver.get(webpage)
-        self.driver.maximize_window()
+        try:
+            # Check if environment variable is set
+            if os.environ.get("webdriver.chrome.driver"):
+                chromedriver_path = os.environ.get("webdriver.chrome.driver")
+            else:
+                chromedriver_path = ChromeDriverManager().install()
+            self.driver = webdriver.Chrome(service=Service(chromedriver_path))
+            self.driver.get(webpage)
+            self.driver.maximize_window()
+        except Exception as e:
+            print(f"Error initializing driver: {e}")
 
     def login(self, username, password):
         self.username = username
