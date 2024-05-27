@@ -37,7 +37,7 @@ def module0():
         unsafe_allow_html=True
     )
     st.markdown("## Architecture Diagram:")
-    diagram_image = ""  # Replace with the actual path to your image
+    diagram_image = "D:/scraper/archi_diag.jpg"  # Replace with the actual path to your image
     st.image(diagram_image, use_column_width=True)
 
 # Load English language model with NER
@@ -330,7 +330,7 @@ def module3():
         """,
         unsafe_allow_html=True
     )
-    api_key = "AIzaSyAXosqAdjG*********************"  # Replace with your actual Google Gemini API key
+    api_key = "AIzaSyAXosqAdjG6PNyKLhkuUS_muN-39-HS1DY"  # Replace with your actual Google Gemini API key
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel("gemini-pro")
 
