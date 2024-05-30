@@ -334,7 +334,7 @@ def module3():
         """,
         unsafe_allow_html=True
     )
-    api_key = "AIzaSyAXosqAdjG6PNyKLhkuUS_muN-39-HS1DY"  # Replace with your actual Google Gemini API key
+    api_key = "AIzaS**************************"  # Replace with your actual Google Gemini API key
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel("gemini-pro")
 
